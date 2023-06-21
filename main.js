@@ -33,7 +33,7 @@ const mostrarTarjetas = async () =>
 {
     const resp = await fetch("./datos.JSON")
     const data = await resp.json()
-    baseDeProductos=data;
+    //let baseDeProductos [] = data;
     data.forEach( (prod) => {
         const tarjeta = document.createElement('article')
         tarjeta.classList.add("card", "col-md-12", "col-lg-3")
@@ -61,9 +61,15 @@ console.log(carrito)
 
 // Agregar un producto al carrito
 function agregarAlCarrito(event) {
-  
+  const productos = async () =>
+  {
+      const resp = await fetch("./datos.JSON")
+      const data = await resp.json()
+      
+  }
+
   const id = event.target.id;
-  const prodBuscado = baseDeProductos.find(prod => prod.id === id);
+  const prodBuscado = productos.find(prod => prod.id === id);
 
   const Toast = Swal.mixin({
     toast: true,
