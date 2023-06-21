@@ -33,7 +33,6 @@ const mostrarTarjetas = async () =>
 {
     const resp = await fetch("./datos.JSON")
     const data = await resp.json()
-    //let baseDeProductos [] = data;
     data.forEach( (prod) => {
         const tarjeta = document.createElement('article')
         tarjeta.classList.add("card", "col-md-12", "col-lg-3")
@@ -65,7 +64,6 @@ function agregarAlCarrito(event) {
   {
       const resp = await fetch("./datos.JSON")
       const data = await resp.json()
-      
   }
 
   const id = event.target.id;
