@@ -67,7 +67,7 @@ function agregarAlCarrito(event) {
   }
 
   const id = event.target.id;
-  const prodBuscado = productos.find(prod => prod.id === id);
+  const prodBuscado = data.find(prod => prod.id === id);
 
   const Toast = Swal.mixin({
     toast: true,
