@@ -1,0 +1,130 @@
+*{
+    padding: 0px;
+    border:  0px;
+    margin: 0;
+}
+
+.btnHeader{
+    background:none;
+    font-size: 35px;
+
+}
+/*
+.fondoNav{
+    background-image: url("./imgs/img1.jpg");
+}*/
+
+body {
+    background-image: url("imgs/cool-background.png");
+    background-size: inherit;
+    background-attachment: fixed;
+
+}
+
+.logo{
+    width: 95px;
+    margin-left: 40px;
+    margin-top: 15px;
+    
+}
+
+.iconoCarrito{
+    width: 95px;
+    margin-left: 1180px;
+    margin-top: 15px;
+}
+
+header{
+    padding: 0px;
+    margin-top: 10px;
+    margin-left: 7px;
+    margin-right: 7px;
+    background-color: #219ebc;
+    font: sans-serif;
+}
+
+#grid{
+    display: grid;
+    grid-template-areas: 
+        "area2 area1"
+        "area3 area3";
+    grid-template-rows: 100px, 100px;
+    grid-template-columns: 1fr, 5fr;    
+    grid-gap: 1px;
+    justify-content:space-evenly;
+    align-content: space-evenly;
+}
+
+.grid-item1{
+    grid-area: area1;
+    height:max-content;
+    margin:5px;
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: stretch;    
+}
+
+.grid-item2{
+    grid-area: area2;
+    width: 310px;
+    padding-top: 5px;
+    padding-left: 15px;
+    display: flex;
+    flex-flow: column;
+}
+
+.acordion{
+    padding-left: 15px;
+}
+
+.button {
+    cursor: pointer;
+    position: relative;
+    padding: 10px 24px;
+    font-size: 18px;
+    color: rgb(193, 163, 98);
+    border: 2px solid rgb(193, 163, 98);
+    border-radius: 34px;
+    background-color: #023047;
+    font-weight: 600;
+    font-family: sans-serif;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+    overflow: hidden;
+  }
+  
+  .button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    border-radius: inherit;
+    scale: 0;
+    z-index: -1;
+    background-color: rgb(193, 163, 98);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+  
+  .button:hover::before {
+    scale: 3;
+  }
+  
+  .button:hover {
+    color: #023047;
+    scale: 1.1;
+    box-shadow: 0 0px 20px rgba(193, 163, 98,0.4);
+  }
+  
+  .button:active {
+    scale: 1;
+  }
+  
+
+.total{
+    background-color: antiquewhite;
+    border-radius: 5%;
+    font-size: 20px;
+    font-family: sans-serif;
+}
