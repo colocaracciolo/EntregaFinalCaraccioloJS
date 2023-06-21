@@ -31,7 +31,7 @@ if (localStorage.getItem('datosCliente')) {
 const contenedorProductos = document.querySelector(".grid-item1")
 const mostrarTarjetas = async () =>
 {
-    const resp = await fetch("./datos.json")
+    const resp = await fetch("./datos.JSON")
     const data = await resp.json()
     baseDeProductos=data;
     data.forEach( (prod) => {
