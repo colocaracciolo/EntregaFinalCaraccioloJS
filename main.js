@@ -15,7 +15,7 @@ let datosCliente =
                     codigoSeguridad:"",
                     fechaVencimiento:""
                     }
-const dolarPeso= 428;
+const dolarPeso= 2;
 
 // Verificar si el carrit está almacenado en localStorage y cargarlo
 if (localStorage.getItem('carrito')) {
@@ -43,7 +43,7 @@ const mostrarTarjetas = async () =>
             <h5 class="cart-title">Precio USD ${prod.precio} </h5>
             <p class="cart-title">Material: ${prod.material} </p>
             <p class="card-text">Color: ${prod.color}</p>
-            <p class="card-text">Peso: ${prod.peso} gramos </p>
+            <p class="card-text">Peso (gr): ${prod.peso}</p>
             <button id='${prod.id}' class="botonComprar button"> Agregar al carrito </button>
           </div> 
             `
@@ -56,6 +56,7 @@ const mostrarTarjetas = async () =>
 }
 
 mostrarTarjetas()
+
 console.log(carrito)
 
 // Agregar un producto al carrito
@@ -64,10 +65,23 @@ function agregarAlCarrito(event) {
   {
       const resp = await fetch("./datos.JSON")
       const data = await resp.json()
+      const id = event.target.id;
+      const prodBuscado = data.find(prod => prod.id === id);
+    
+      // Verificar si el producto ya está en el carrito
+      const productoExistente = carrito.find(item => item.id === id);
+      if (productoExistente) {
+        productoExistente.cantidad++;
+      } else {
+        prodBuscado.cantidad = 1;
+        carrito.push(prodBuscado);
+      }
+      mostrarCarrito();
+       guardarCarritoLocalStorage();
   }
 
-  const id = event.target.id;
-  const prodBuscado = data.find(prod => prod.id === id);
+ 
+  
 
   const Toast = Swal.mixin({
     toast: true,
@@ -80,24 +94,14 @@ function agregarAlCarrito(event) {
       toast.addEventListener('mouseleave', Swal.resumeTimer)
     }
   })
-  
   Toast.fire({
     icon: 'success',
     color: '#023047',
     title: 'Agregado al carrito'
   })
+  productos()
 
-  // Verificar si el producto ya está en el carrito
-  const productoExistente = carrito.find(item => item.id === id);
-  if (productoExistente) {
-    productoExistente.cantidad++;
-  } else {
-    prodBuscado.cantidad = 1;
-    carrito.push(prodBuscado);
-  }
-
-  mostrarCarrito();
-  guardarCarritoLocalStorage();
+  
 }
 
 // Mostrar el carrito

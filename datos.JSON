@@ -28,5 +28,5 @@
 "categoria":"ropa","precio":150,"talle":"XL","color":"Negro y amarillo","marca":"Scott","peso":145,
 "material":"Poliamida y elastano","id":"11","ajuste":"Slim","imagen":"imgs/imgsProductos/calza-hombre.png"},
 {"nombre":"Gafas de máscara SCOTT FACTOR MTB ","categoria":"accesorios","precio":250,"talle":"S","color":"Anaranjado"
-,"marca":"Scott","material":"Silicona antideslizante","id":"12","lentes":"Intecambiables 100% UV",
+,"marca":"Scott", "peso":"S/D","material":"Silicona antideslizante","id":"12","lentes":"Intecambiables 100% UV",
 "imagen":"imgs/imgsProductos/gafas-scott.png"}]
