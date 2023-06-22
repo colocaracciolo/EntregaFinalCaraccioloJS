@@ -256,9 +256,9 @@ function funcionDatosCompra (total){
         datosCliente.fechaVencimiento = document.getElementById('inputFechaTarjeta').value
         guardarDatosLocalStorage()
       Swal.fire({
-    title: '¡Felicitaciones ${datosCliente.nombre}! ',
+    title: '¡Felicitaciones `${datosCliente.nombre}`! ',
     text: 'Tu pedido está en camino',
-    text: '`${datosCliente.nombre}`',
+    text: `${datosCliente.nombre}`,
     imageUrl: 'https://unsplash.it/400/200',
     imageWidth: 400,
     imageHeight: 200,
