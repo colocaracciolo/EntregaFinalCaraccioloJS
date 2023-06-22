@@ -259,7 +259,7 @@ function funcionDatosCompra (total){
     title: '¡Felicitaciones',
     text: 'Tu pedido está en camino',
     text: `${datosCliente.apellido}`,
- 
+    text: `${datosCliente.numeroCalle}`,
     imageUrl: 'https://unsplash.it/400/200',
     imageWidth: 400,
     imageHeight: 200,
