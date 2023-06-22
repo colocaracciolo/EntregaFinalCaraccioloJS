@@ -258,7 +258,8 @@ function funcionDatosCompra (total){
       Swal.fire({
     title: '¡Felicitaciones',
     text: 'Tu pedido está en camino a',
-    text: `${datosCliente.calle, datosCliente.numeroCalle, datosCliente.ciudad, datosCliente.provincia}`,
+    text: `${datosCliente.calle}`,
+    text: `${datosCliente.numeroCalle}`,
     text: `${datosCliente.nombre}`,
     imageUrl: 'https://unsplash.it/400/200',
     imageWidth: 400,
