@@ -257,9 +257,8 @@ function funcionDatosCompra (total){
         guardarDatosLocalStorage()
       Swal.fire({
     title: '¡Felicitaciones',
-    text: 'Tu pedido está en camino a',
-    text: `${datosCliente.calle}`,
-    text: `${datosCliente.numeroCalle}`,
+    text: 'Tu pedido está en camino',
+    text: `${datosCliente.apellido}`,
     text: `${datosCliente.nombre}`,
     imageUrl: 'https://unsplash.it/400/200',
     imageWidth: 400,
