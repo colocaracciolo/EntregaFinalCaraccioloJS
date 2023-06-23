@@ -27,26 +27,116 @@ if (localStorage.getItem('datosCliente')) {
   datosCliente = JSON.parse(localStorage.getItem('datosCliente'));
 }
 
+
+
+const navigationBar = document.querySelector(".filtro")
+
+const contenedorFiltro = document.createElement('div')
+contenedorFiltro.classList.add("clase--filtro")
+contenedorFiltro.innerHTML=`
+                            <form id="filtroCategorias">
+
+                                <h4 class="titleNav"> Filtrar </h4>
+
+                                <h5 class="titleFilter"> Categorías </h5>
+
+                                <h6 class="titleCat">Todas</h6>
+                                <input id="all" type="radio" name="categoria">
+
+                                <h6 class="titleCat">Montaña</h6>
+                                <input id="mountain "type="radio" name="categoria">
+
+                                <h6 class="titleCat">Ruta</h6>
+                                <input id="road" type="radio" name="categoria">
+
+                                <h6 class="titleCat">e-bike</h6>
+                                <input id="e-bike" type="radio" name="categoria">
+
+                                <h6 class="titleCat">DH</h6>
+                                <input id="DH" type="radio" name="categoria">
+
+                                <h6 class="titleCat">Accesorios</h6>
+                                <input id="accesories" type="radio" name="categoria">
+
+                                <h6 class="titleCat">Ropa</h6>
+                                <input id="clothes" type="radio" name="categoria">
+
+                            </form>
+                          `
+
+navigationBar.appendChild(contenedorFiltro)
+
+
+/*
+const filtroCategorias = document.getElementById("filtroCategorias")
+//agrego un listener para capturar el eventro
+    filtroCategorias.addEventListener("submit", (e) => {
+      e.preventDefault();
+      mostrarTarjetasFiltradas()
+    })
+
+    const mostrarTarjetasFiltradas = () => {
+      // Obtener el valor del radio button seleccionado
+      const categoriaSeleccionada = filtroForm.querySelector('input[name="categoria"]:checked').id;
+      
+      // Filtrar los productos según la categoría seleccionada
+      const productosFiltrados = data.filter((prod) => {
+        if (categoriaSeleccionada === 'all') {
+          return true; // Mostrar todos los productos si se selecciona "Todas"
+        } else {
+          return prod.categoria === categoriaSeleccionada; // Filtrar por la categoría seleccionada
+        }
+      });
+      
+      // Limpiar el contenedor antes de mostrar los productos filtrados
+      contenedorProductos.innerHTML = '';
+      
+      // Mostrar los productos filtrados en las tarjetas
+      productosFiltrados.forEach((prod) => {
+        // Código para crear y mostrar las tarjetas de los productos filtrados
+        // Similar a la parte actual del código que crea las tarjetas en la función mostrarTarjetas
+      });
+      
+      // Agregar el evento de click para agregar al carrito a los nuevos botones de compra
+      const btnComprar = document.querySelectorAll(".botonComprar");
+      btnComprar.forEach((el) => {
+        el.addEventListener('click', agregarAlCarrito);
+      });
+    };
+
+*/
+
 // Mostrar los productos
 const contenedorProductos = document.querySelector(".grid-item1")
-const mostrarTarjetas = async () =>
+
+const mostrarTarjetas  = async () =>
 {
+    //busco en JSON los productos, datos.   
     const resp = await fetch("./datos.JSON")
     const data = await resp.json()
+
+
+
+
+
+
+
+
     data.forEach( (prod) => {
+    
         const tarjeta = document.createElement('article')
         tarjeta.classList.add("card", "col-md-12", "col-lg-3")
         tarjeta.innerHTML=`
-          <img class="card-img-top" src="${prod.imagen}" alt="img">
-          <div class="card-body"> 
-            <h4 class="card-title">${prod.nombre}</h4>
-            <h5 class="cart-title">Precio USD ${prod.precio} </h5>
-            <p class="cart-title">Material: ${prod.material} </p>
-            <p class="card-text">Color: ${prod.color}</p>
-            <p class="card-text">Peso (gr): ${prod.peso}</p>
-            <button id='${prod.id}' class="botonComprar button"> Agregar al carrito </button>
-          </div> 
-            `
+                          <img class="card-img-top" src="${prod.imagen}" alt="img">
+                          <div class="card-body"> 
+                            <h4 class="card-title">${prod.nombre}</h4>
+                            <h5 class="cart-title">Precio USD ${prod.precio} </h5>
+                            <p class="cart-title">Material: ${prod.material} </p>
+                            <p class="card-text">Color: ${prod.color}</p>
+                            <p class="card-text">Peso (gr): ${prod.peso}</p>
+                            <button id='${prod.id}' class="botonComprar button"> Agregar al carrito </button>
+                          </div> 
+                          `
         contenedorProductos.appendChild(tarjeta)
     })
     const btnComprar = document.querySelectorAll(".botonComprar");
@@ -55,9 +145,19 @@ const mostrarTarjetas = async () =>
     })
 }
 
+
+
+
+
+
+
+
+
+
+
 mostrarTarjetas()
 
-console.log(carrito)
+
 
 // Agregar un producto al carrito
 function agregarAlCarrito(event) {
@@ -77,11 +177,8 @@ function agregarAlCarrito(event) {
         carrito.push(prodBuscado);
       }
       mostrarCarrito();
-       guardarCarritoLocalStorage();
+      guardarCarritoLocalStorage();
   }
-
- 
-  
 
   const Toast = Swal.mixin({
     toast: true,
@@ -99,27 +196,32 @@ function agregarAlCarrito(event) {
     color: '#023047',
     title: 'Agregado al carrito'
   })
-  productos()
 
-  
+  productos()
 }
 
-// Mostrar el carrito
+
+
+
+
+//obtengo elemento de html para el carrito
 const contenedorCarrito = document.querySelector(".grid-item2");
+
+// Mostrar el carrito
 const mostrarCarrito = () => {
   contenedorCarrito.innerHTML = '';
   carrito.forEach(productoCarrito => {
     const muestraCarrito = document.createElement('article');
     muestraCarrito.classList.add("card", "col-md-12", "col-lg-11");
     muestraCarrito.innerHTML = `
-      <img class="card-img-top" src="${productoCarrito.imagen}" alt="img">
-      <div class="card-body"> 
-        <h4 class="card-title">${productoCarrito.nombre}</h4>
-        <h5 class="cart-title">USD ${productoCarrito.precio}</h5>
-        <p>Cantidad: ${productoCarrito.cantidad}</p>
-        <button id='${productoCarrito.id}' class="botonQuitar button">Quitar</button>
-      
-      </div>`;
+                              <img class="card-img-top" src="${productoCarrito.imagen}" alt="img">
+                              <div class="card-body"> 
+                                <h4 class="card-title">${productoCarrito.nombre}</h4>
+                                <h5 class="cart-title">USD ${productoCarrito.precio}</h5>
+                                <p>Cantidad: ${productoCarrito.cantidad}</p>
+                                <button id='${productoCarrito.id}' class="botonQuitar button">Quitar</button>
+                              </div>
+                              `;
     contenedorCarrito.appendChild(muestraCarrito);
   });
 
@@ -132,18 +234,25 @@ const mostrarCarrito = () => {
   const total = carrito.reduce((acc, producto) => acc + producto.precio * producto.cantidad, 0);
   const totalElement = document.createElement('p');
   totalElement.classList.add("total")
+
   //botón de compra final
-  const btnCompraFinal = document.createElement('button')
-  btnCompraFinal.addEventListener('click', (e)=>{
-    e.preventDefault();
-    funcionDatosCompra(total);
-  })
+  funcionDatosCompra(total);
+
+  // const btnCompraFinal = document.createElement('button')
+  // btnCompraFinal.addEventListener('click', (e)=>{
+  //  e.preventDefault();
+  // })
+
   totalElement.textContent = `Total: $ ${total*dolarPeso}`;
   contenedorCarrito.appendChild(totalElement)
-  btnCompraFinal.textContent = `Comprar`;
-  btnCompraFinal.classList.add("button")
-  contenedorCarrito.appendChild(btnCompraFinal) 
+  //btnCompraFinal.textContent = `Comprar/Actualizar carrito`;
+  // btnCompraFinal.classList.add("button")
+  //contenedorCarrito.appendChild(btnCompraFinal) 
 };
+
+
+
+
 
 const formulario = document.querySelector(".datosCompra")
 
@@ -239,7 +348,7 @@ function funcionDatosCompra (total){
                            `
       formulario.appendChild(datosCompraFinal);
       const botonEnviar = document.getElementById('botonEnviar')
-      botonEnviar.addEventListener('click', function(e) {
+      botonEnviar.addEventListener('click', (e) =>{
         e.preventDefault();
         datosCliente.nombre = document.getElementById('inputNombre').value
         datosCliente.apellido = document.getElementById('inputApellido').value
@@ -255,25 +364,32 @@ function funcionDatosCompra (total){
         datosCliente.codigoSeguridad = document.getElementById('inputCodigoTarjeta').value
         datosCliente.fechaVencimiento = document.getElementById('inputFechaTarjeta').value
         guardarDatosLocalStorage()
-      Swal.fire({
-    title: '¡Felicitaciones ' + datosCliente.apellido + ' ' + datosCliente.nombre + '!',
-    text: 'Tu pedido está en camino a '+datosCliente.calle + ' '+ datosCliente.numeroCalle + ' ' + datosCliente.ciudad + ' ' + datosCliente.barrio,
-    imageUrl: 'https://unsplash.it/400/200',
-    imageWidth: 400,
-    imageHeight: 200,
-    imageAlt: 'Bicimundo',
-})
-     
-      })
-}
+        carrito = JSON.parse(localStorage.getItem('carrito'));
 
+      if(carrito.length==0){
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'El carrito está vacio',
+        })
+      }else{
+        Swal.fire({
+        title: '¡Felicitaciones ' + datosCliente.apellido + ' ' + datosCliente.nombre + '!',
+        text: 'Tu pedido está en camino a '+ datosCliente.calle + ' '+ datosCliente.numeroCalle + ' ' + datosCliente.ciudad + ' ' + datosCliente.barrio + ' Total: $ ' + total*dolarPeso ,
+        imageUrl: 'https://unsplash.it/400/200',
+        imageWidth: 400,
+        imageHeight: 200,
+        imageAlt: 'Bicimundo',
+            })
+          vaciarCarrito()
+        }
+    }) 
+} 
 
 const btnComprar = document.querySelectorAll(".botonComprar");
   btnComprar.forEach(el => {
     el.addEventListener('click', agregarAlCarrito);
   });
-
-
 
 // Quitar un producto del carrito
 function quitarProducto(event) {
@@ -287,17 +403,28 @@ function quitarProducto(event) {
       carrito.splice(indice, 1);
     }
   }
-
   mostrarCarrito();
   guardarCarritoLocalStorage();
 }
+
 
 // Guardar el carrito en localStorage
 function guardarCarritoLocalStorage() {
   localStorage.setItem('carrito', JSON.stringify(carrito));
 }
 
+
 // Guardar datos del cliente en en localStorage
 function guardarDatosLocalStorage() {
   localStorage.setItem('datosCliente', JSON.stringify(datosCliente));
 } 
+
+
+//función para vaciar carrito, usarla después de dar click en botón enviar
+function vaciarCarrito (){
+  carrito.splice(0, carrito.length)
+
+  mostrarCarrito();
+  guardarCarritoLocalStorage()
+  //localStorage.removeItem("carrito")
+}

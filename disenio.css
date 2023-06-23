@@ -43,13 +43,23 @@ header{
 #grid{
     display: grid;
     grid-template-areas: 
-        "area2 area1"
-        "area3 area3";
+        "area2 area1 filtro"
+        "area3 area3 filtro";
     grid-template-rows: 100px, 100px;
     grid-template-columns: 1fr, 5fr;    
     grid-gap: 1px;
     justify-content:space-evenly;
     align-content: space-evenly;
+}
+
+.filtro{
+    grid-area: filtro;
+    height: 250px;
+    margin:5px;
+    padding-top: 5px;
+    padding-right: 15px;
+    display: flex;
+    flex-flow: column;
 }
 
 .grid-item1{
@@ -69,6 +79,10 @@ header{
     padding-left: 15px;
     display: flex;
     flex-flow: column;
+}
+
+.clase--filtro{
+    background-color: #219ebc;
 }
 
 .acordion{
