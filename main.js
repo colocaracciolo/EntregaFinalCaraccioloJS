@@ -383,6 +383,30 @@ function funcionDatosCompra (total){
           title: 'Oops...',
           text: 'El carrito está vacio',
         })
+        //No confirma la compra si faltan "datos del cliente"
+      }else if(datosCliente.nombre == false || datosCliente.apellido == false || datosCliente.correoElectronico == false ){
+        Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Completar los datos de contacto',
+        })
+      //No confirma el la compra si faltan "datos de envio"
+      }else if(datosCliente.provincia == false || datosCliente.ciudad == false || datosCliente.barrio == false
+            || datosCliente.calle == false || datosCliente.numeroCalle == false || datosCliente.codigoPostal == false ){
+        Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Completar los datos de envío',
+        })
+      //No confirma la compra si faltan "datos de pago"
+      }else if(datosCliente.nombreTarjeta == false 
+              || datosCliente.numeroTarjeta == false || datosCliente.codigoSeguridad == false || datosCliente.fechaVencimiento == false){
+        Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Completar los datos de pago',
+        })
+      //Confirma la compra
       }else{
         Swal.fire({
         title: '¡Felicitaciones ' + datosCliente.apellido + ' ' + datosCliente.nombre + '!',
@@ -391,10 +415,10 @@ function funcionDatosCompra (total){
         imageWidth: 400,
         imageHeight: 200,
         imageAlt: 'Bicimundo',
-            })
-          vaciarCarrito()
-        }
-    }) 
+        })
+        vaciarCarrito()
+      }
+  }) 
 } 
 
 const btnComprar = document.querySelectorAll(".botonComprar");
