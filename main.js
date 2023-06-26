@@ -33,102 +33,67 @@ const contenedorFiltro = document.createElement('div')
 contenedorFiltro.classList.add("clase--filtro")
 contenedorFiltro.innerHTML=`
                             <form id="filtroCategorias">
-
                                 <h4 class="titleNav"> Filtrar </h4>
-
                                 <h5 class="titleFilter"> Categorías </h5>
 
                                 <h6 class="titleCat">Todas</h6>
-                                <input id="all" type="radio" name="categoria">
+                                <input id="all" value="all" type="radio" name="option"  >
 
                                 <h6 class="titleCat">Montaña</h6>
-                                <input id="mountain" type="radio" name="categoria">
+                                <input id="mountain" value="montana" type="radio" name="option">
 
                                 <h6 class="titleCat">Ruta</h6>
-                                <input id="road" type="radio" name="categoria">
+                                <input id="road" value="ruta" type="radio" name="option">
 
                                 <h6 class="titleCat">e-bike</h6>
-                                <input id="ebike" type="radio" name="categoria">
+                                <input id="ebike" value="ebike" type="radio" name="option">
 
                                 <h6 class="titleCat">DH</h6>
-                                <input id="DH" type="radio" name="categoria">
+                                <input id="DH" value="DH" type="radio" name="option">
 
                                 <h6 class="titleCat">Accesorios</h6>
-                                <input id="accesories" type="radio" name="categoria">
+                                <input id="accesories" value="accesorios" type="radio" name="option">
 
                                 <h6 class="titleCat">Ropa</h6>
-                                <input id="clothes" type="radio" name="categoria">
+                                <input id="clothes" value="ropa" type="radio" name="option">
+
+                                <br>
                             </form>
                           `
 navigationBar.appendChild(contenedorFiltro)
 
-
-
-
 // Mostrar los productos
 const contenedorProductos = document.querySelector(".grid-item1")
 
+
+
+
+
+
 const mostrarTarjetas  = async () =>
 {
-    //busco en JSON los productos, datos.   
-    const resp = await fetch("./datos.JSON")
-    const data = await resp.json()
+  //busco en JSON los productos, datos.   
+  const resp = await fetch("./datos.JSON")
+  const data = await resp.json()
+  
+mostrarCarrito()
 
-
-        const prodAll = document.querySelector("#all")
-    const prodMountain = document.querySelector("#mountain")
-    const prodRoad = document.querySelector("#road")
-    const prodEbike = document.querySelector("#ebike")
-    const prodDH = document.querySelector("#DH")
-    const prodAccesories = document.querySelector("#accesories")
-    const prodClothes = document.querySelector("#clothes")
-
-    prodAll.addEventListener('click', ()=>{
-      console.log("all")
-
-    });
-
-    prodMountain.addEventListener('click', ()=>{
-      console.log("montana")
-    })
-
-    prodRoad.addEventListener('click', ()=>{
-      console.log("Road")
-    });
-
-    prodEbike.addEventListener('click', ()=>{
-      console.log("ebike")
-    });
-
-    prodDH.addEventListener('click', ()=>{
-      console.log("DH")
-    })
-
-    prodAccesories.addEventListener('click', ()=>{
-      console.log("accesorios")
-    });
-
-    prodClothes.addEventListener('click', ()=>{
-      console.log("clothes")
-    });
-
-
-    //Muestro todos los prouctos
-    data.forEach( (prod) => {
-      const tarjeta = document.createElement('article')
-      tarjeta.classList.add("card", "col-md-12", "col-lg-3")
-      tarjeta.innerHTML=`
-                        <img class="card-img-top" src="${prod.imagen}" alt="img">
-                        <div class="card-body"> 
-                          <h4 class="card-title">${prod.nombre}</h4>
-                          <h5 class="cart-title">Precio USD ${prod.precio} </h5>
-                          <p class="cart-title">Material: ${prod.material} </p>
-                          <p class="card-text">Color: ${prod.color}</p>
-                          <p class="card-text">Peso (gr): ${prod.peso}</p>
-                          <button id='${prod.id}' class="botonComprar button"> Agregar al carrito </button>
-                        </div> 
-                        `
-      contenedorProductos.appendChild(tarjeta)
+  contenedorProductos.innerHTML='';
+  data.forEach( (product) => {
+    const tarjeta = document.createElement('article')
+    tarjeta.classList.add("card", "col-md-12", "col-lg-3")
+    tarjeta.innerHTML=`
+                      <img class="card-img-top" src="${product.imagen}" alt="img">
+                      <div class="card-body"> 
+                        <h4 class="card-title">${product.nombre}</h4>
+                        <h5 class="cart-title">Precio USD ${product.precio} </h5>
+                        <p class="cart-title">Material: ${product.material} </p>
+                        <p class="card-text">Color: ${product.color}</p>
+                        <p class="card-text">Peso (gr): ${product.peso}</p>
+                        <button id='${product.id}' class="botonComprar button"> Agregar al carrito </button>
+                      </div> 
+                      `
+    contenedorProductos.appendChild(tarjeta)
   })
   const btnComprar = document.querySelectorAll(".botonComprar");
   btnComprar.forEach(el => {
@@ -137,17 +102,73 @@ const mostrarTarjetas  = async () =>
 
 
 
+  const filtroCategorias=document.querySelector("#filtroCategorias")
+  filtroCategorias.addEventListener('click', (e) =>{
+    e.preventDefault()
     
+    const selectedOption = document.querySelector('input[name="option"]:checked');
+
+    //elimino lo anterior en el dom
+    contenedorProductos.innerHTML='';
+
+    const categoriaFiltrada = selectedOption.value;
+    //controlo qué se ingresó en la línea anterior
+    console.log('La opción seleccionada es:', categoriaFiltrada);
+
+    const productosFiltrados=data.filter((prod =>prod.categoria===categoriaFiltrada))
+    //controlo que los productos filtrados son de esa categoria
+    console.log(productosFiltrados)    
+
+    if(categoriaFiltrada=='all'){
+      contenedorProductos.innerHTML='';
+      data.forEach( (product) => {
+        const tarjeta = document.createElement('article')
+        tarjeta.classList.add("card", "col-md-12", "col-lg-3")
+        tarjeta.innerHTML=`
+                          <img class="card-img-top" src="${product.imagen}" alt="img">
+                          <div class="card-body"> 
+                            <h4 class="card-title">${product.nombre}</h4>
+                            <h5 class="cart-title">Precio USD ${product.precio} </h5>
+                            <p class="cart-title">Material: ${product.material} </p>
+                            <p class="card-text">Color: ${product.color}</p>
+                            <p class="card-text">Peso (gr): ${product.peso}</p>
+                            <button id='${product.id}' class="botonComprar button"> Agregar al carrito </button>
+                          </div> 
+                          `
+        contenedorProductos.appendChild(tarjeta)
+      })
+      const btnComprar = document.querySelectorAll(".botonComprar");
+      btnComprar.forEach(el => {
+          el.addEventListener('click', agregarAlCarrito)
+      })
+
+    }else{
+
+      productosFiltrados.forEach( (product) => {
+        const tarjeta = document.createElement('article')
+        tarjeta.classList.add("card", "col-md-12", "col-lg-3")
+        tarjeta.innerHTML=`
+                          <img class="card-img-top" src="${product.imagen}" alt="img">
+                          <div class="card-body"> 
+                            <h4 class="card-title">${product.nombre}</h4>
+                            <h5 class="cart-title">Precio USD ${product.precio} </h5>
+                            <p class="cart-title">Material: ${product.material} </p>
+                            <p class="card-text">Color: ${product.color}</p>
+                            <p class="card-text">Peso (gr): ${product.peso}</p>
+                            <button id='${product.id}' class="botonComprar button"> Agregar al carrito </button>
+                          </div> 
+                          `
+        contenedorProductos.appendChild(tarjeta)
+      })
+      const btnComprar = document.querySelectorAll(".botonComprar");
+      btnComprar.forEach(el => {
+          el.addEventListener('click', agregarAlCarrito)
+          })
+    }
+  })
 }
 
-
-
-
-
-
 mostrarTarjetas()
-
-
 
 // Agregar un producto al carrito
 function agregarAlCarrito(event) {
