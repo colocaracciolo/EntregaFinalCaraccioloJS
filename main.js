@@ -79,11 +79,6 @@ navigationBar.appendChild(contenedorFiltro)
 // Mostrar los productos
 const contenedorProductos = document.querySelector(".grid-item1")
 
-
-
-
-
-
 const mostrarTarjetas  = async () =>
 {
   //busco en JSON los productos, datos.   
@@ -124,14 +119,8 @@ mostrarCarrito()
 
     //elimino lo anterior en el dom
     contenedorProductos.innerHTML='';
-
     const categoriaFiltrada = selectedOption.value;
-    //controlo qué se ingresó en la línea anterior
-    console.log('La opción seleccionada es:', categoriaFiltrada);
-
     const productosFiltrados=data.filter((prod =>prod.categoria===categoriaFiltrada))
-    //controlo que los productos filtrados son de esa categoria
-    console.log(productosFiltrados)    
 
     if(categoriaFiltrada=='all'){
       contenedorProductos.innerHTML='';
@@ -225,10 +214,6 @@ function agregarAlCarrito(event) {
   productos()
 }
 
-
-
-
-
 //obtengo elemento de html para el carrito
 const contenedorCarrito = document.querySelector(".grid-item2");
 
@@ -260,24 +245,12 @@ const mostrarCarrito = () => {
   const totalElement = document.createElement('p');
   totalElement.classList.add("total")
 
-  //botón de compra final
   funcionDatosCompra(total);
-
-  // const btnCompraFinal = document.createElement('button')
-  // btnCompraFinal.addEventListener('click', (e)=>{
-  //  e.preventDefault();
-  // })
 
   totalElement.textContent = `Total: $ ${total*dolarPeso}`;
   contenedorCarrito.appendChild(totalElement)
-  //btnCompraFinal.textContent = `Comprar/Actualizar carrito`;
-  // btnCompraFinal.classList.add("button")
-  //contenedorCarrito.appendChild(btnCompraFinal) 
+
 };
-
-
-
-
 
 const formulario = document.querySelector(".datosCompra")
 
@@ -300,7 +273,6 @@ function funcionDatosCompra (total){
 
                             <div id="collapseOne" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-
                                     <nav class="navbar bg-body-tertiary">
                                     <div class="container-fluid">
                                         <form class="" role="search">
@@ -313,7 +285,6 @@ function funcionDatosCompra (total){
                                         </form>
                                     </div>
                                     </nav>
-
                                 </div>
                             </div>
                             </div>
@@ -327,20 +298,18 @@ function funcionDatosCompra (total){
                             </h2>
                             <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                
-                                <h6> Provincia </h6>
-                                <input id="inputProvincia" class="form-control me-2" type="text" placeholder="Provincia" aria-label="Search">
-                                <h6> Ciudad </h6>
-                                <input id="inputCiudad" class="form-control me-2" type="text" placeholder="Ciudad" aria-label="Search">
-                                <h6> Barrio </h6>
-                                <input id="inputBarrio" class="form-control me-2" type="text" placeholder="Barrio" aria-label="Search">
-                                <h6> Dirección </h6>
-                                <input id="inputCalle" class="form-control me-2" type="text" placeholder="Calle" aria-label="Search">
-                                <h6> Número </h6>
-                                <input id="inputNumeroDireccion" class="form-control me-2" type="text" placeholder="Número de calle" aria-label="Search">
-                                <h6> Código postal </h6>
-                                <input id="inputCodigoPostal" class="form-control me-2" type="text" placeholder="Código postal" aria-label="Search">
-                                
+                                  <h6> Provincia </h6>
+                                  <input id="inputProvincia" class="form-control me-2" type="text" placeholder="Provincia" aria-label="Search">
+                                  <h6> Ciudad </h6>
+                                  <input id="inputCiudad" class="form-control me-2" type="text" placeholder="Ciudad" aria-label="Search">
+                                  <h6> Barrio </h6>
+                                  <input id="inputBarrio" class="form-control me-2" type="text" placeholder="Barrio" aria-label="Search">
+                                  <h6> Dirección </h6>
+                                  <input id="inputCalle" class="form-control me-2" type="text" placeholder="Calle" aria-label="Search">
+                                  <h6> Número </h6>
+                                  <input id="inputNumeroDireccion" class="form-control me-2" type="text" placeholder="Número de calle" aria-label="Search">
+                                  <h6> Código postal </h6>
+                                  <input id="inputCodigoPostal" class="form-control me-2" type="text" placeholder="Código postal" aria-label="Search">
                                 </div>
                             </div>
                             </div>
@@ -355,18 +324,16 @@ function funcionDatosCompra (total){
 
                             <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                <h6> Nombre y apellido que figura en la tarjeta </h6>
-                                <input id="inputNombreTarjeta" class="form-control me-2" type="text" placeholder="Nombre y apellido" aria-label="Search">
-                                <h6> Número de la tarjeta </h6>
-                                <input id="inputNumeroTarjeta" class="form-control me-2" type="text" placeholder="0000-0000-0000-0000" aria-label="Search">
-                                <h6> Código de seguridad que figura en el dorso </h6>
-                                <input id="inputCodigoTarjeta" class="form-control me-2" type="text" placeholder="123" aria-label="Search">
-                                <h6> Fecha de expiración</h6>
-                                <input id="inputFechaTarjeta" class="form-control me-2" type="text" placeholder="00/00" aria-label="Search">
-                                
+                                  <h6> Nombre y apellido que figura en la tarjeta </h6>
+                                  <input id="inputNombreTarjeta" class="form-control me-2" type="text" placeholder="Nombre y apellido" aria-label="Search">
+                                  <h6> Número de la tarjeta </h6>
+                                  <input id="inputNumeroTarjeta" class="form-control me-2" type="text" placeholder="0000-0000-0000-0000" aria-label="Search">
+                                  <h6> Código de seguridad que figura en el dorso </h6>
+                                  <input id="inputCodigoTarjeta" class="form-control me-2" type="text" placeholder="123" aria-label="Search">
+                                  <h6> Fecha de expiración</h6>
+                                  <input id="inputFechaTarjeta" class="form-control me-2" type="text" placeholder="00/00" aria-label="Search">
                                 </div>
                                 <input id="botonEnviar" type="submit" class="finalCompra button"> </input>
-
                             </div>
                             </div>
                             </div>
@@ -397,6 +364,7 @@ function funcionDatosCompra (total){
           title: 'Oops...',
           text: 'El carrito está vacio',
         })
+
         //No confirma la compra si faltan "datos del cliente"
       }else if(datosCliente.nombre == false || datosCliente.apellido == false || datosCliente.correoElectronico == false ){
         Swal.fire({
@@ -404,24 +372,78 @@ function funcionDatosCompra (total){
         title: 'Oops...',
         text: 'Completar los datos de contacto',
         })
+      }
       //No confirma el la compra si faltan "datos de envio"
-      }else if(datosCliente.provincia == false || datosCliente.ciudad == false || datosCliente.barrio == false
+      else if(datosCliente.provincia == false || datosCliente.ciudad == false || datosCliente.barrio == false
             || datosCliente.calle == false || datosCliente.numeroCalle == false || datosCliente.codigoPostal == false ){
         Swal.fire({
         icon: 'error',
         title: 'Oops...',
         text: 'Completar los datos de envío',
         })
+        
+      
+      }
+      //no confirma si hay str en el nº de tarjeta
+      else if(/^[0-9]+$/.test(datosCliente.numeroTarjeta) == false ){
+        Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'El número de tarjeta admite unicamente números',
+        })
+      }
+      //no confirma si hay mas o menos de 16 nº en la tarjeta
+      else if(datosCliente.numeroTarjeta.length < 16 ||  datosCliente.numeroTarjeta.length > 16){
+        Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'El número de tarjeta debe tener 16 dígitos',
+        })
+      }
+      //no confirma si hay mas o menos de 16 nº en la tarjeta
+      else if(datosCliente.codigoSeguridad.length < 3 || datosCliente.codigoSeguridad.length > 3){
+        Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'El código de seguridad debe tener 3 dígitos',
+        })
+      }
+      //no confirma si hay str en el código de seguridad
+      else if(/^[0-9]+$/.test(datosCliente.numeroTarjeta) == false ){
+        Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'El código de seguridad admite unicamente números',
+        })
+      }
+      //no confirma si hay str en la fecha de vencimiento
+      else if(/^[0-9]+$/.test(datosCliente.fechaVencimiento) == false ){
+        Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'La fecha de vencimiento de la tarjeta admite unicamente números',
+        })
+      }
+      //no confirma si hay >< 4 números en la fecha de vencimiento
+      else if(datosCliente.fechaVencimiento.length < 4 || datosCliente.fechaVencimiento.length > 4){
+        Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'La fecha de vencimiento de la tarjeta admite unicamente 4 números. Mes y año',
+        })
+      }
+      
       //No confirma la compra si faltan "datos de pago"
-      }else if(datosCliente.nombreTarjeta == false 
+      else if(datosCliente.nombreTarjeta == false 
               || datosCliente.numeroTarjeta == false || datosCliente.codigoSeguridad == false || datosCliente.fechaVencimiento == false){
         Swal.fire({
         icon: 'error',
         title: 'Oops...',
         text: 'Completar los datos de pago',
         })
+      }
       //Confirma la compra
-      }else{
+      else{
         Swal.fire({
         title: '¡Felicitaciones ' + datosCliente.apellido + ' ' + datosCliente.nombre + '!',
         text: 'Tu pedido está en camino a '+ datosCliente.calle + ' '+ datosCliente.numeroCalle + ' ' + datosCliente.ciudad + ' ' + datosCliente.barrio + ' Total: $ ' + total*dolarPeso ,
@@ -456,18 +478,15 @@ function quitarProducto(event) {
   guardarCarritoLocalStorage();
 }
 
-
 // Guardar el carrito en localStorage
 function guardarCarritoLocalStorage() {
   localStorage.setItem('carrito', JSON.stringify(carrito));
 }
 
-
 // Guardar datos del cliente en en localStorage
 function guardarDatosLocalStorage() {
   localStorage.setItem('datosCliente', JSON.stringify(datosCliente));
 } 
-
 
 //función para vaciar carrito, usarla después de dar click en botón enviar
 function vaciarCarrito (){
@@ -475,5 +494,4 @@ function vaciarCarrito (){
 
   mostrarCarrito();
   guardarCarritoLocalStorage()
-  //localStorage.removeItem("carrito")
 }
