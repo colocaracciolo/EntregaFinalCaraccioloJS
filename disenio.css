@@ -183,6 +183,7 @@ header{
     margin: 15px; 
     box-shadow: 15px 15px 30px #bebebe41,
              -15px -15px 30px #ffffff48;
+    font-family: 'Work Sans', sans-serif;
 }
 
 .titulo-acordion{
