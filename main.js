@@ -92,7 +92,7 @@ mostrarCarrito()
     const tarjeta = document.createElement('article')
     tarjeta.classList.add("card", "col-md-12", "col-lg-3")
     tarjeta.innerHTML=`
-                      <img class="card-img-top" src="${product.imagen}" alt="img">
+                      <img class="card-img-top img-prod" src="${product.imagen}" alt="img">
                       <div class="card-body"> 
                         <h4 class="card-title">${product.nombre}</h4>
                         <h5 class="cart-title">Precio USD ${product.precio} </h5>
@@ -128,7 +128,7 @@ mostrarCarrito()
         const tarjeta = document.createElement('article')
         tarjeta.classList.add("card", "col-md-12", "col-lg-3")
         tarjeta.innerHTML=`
-                          <img class="card-img-top" src="${product.imagen}" alt="img">
+                          <img class="card-img-top img-prod" src="${product.imagen}" alt="img">
                           <div class="card-body"> 
                             <h4 class="card-title">${product.nombre}</h4>
                             <h5 class="cart-title">Precio USD ${product.precio} </h5>
@@ -151,7 +151,7 @@ mostrarCarrito()
         const tarjeta = document.createElement('article')
         tarjeta.classList.add("card", "col-md-12", "col-lg-3")
         tarjeta.innerHTML=`
-                          <img class="card-img-top" src="${product.imagen}" alt="img">
+                          <img class="card-img-top img-prod" src="${product.imagen}" alt="img">
                           <div class="card-body"> 
                             <h4 class="card-title">${product.nombre}</h4>
                             <h5 class="cart-title">Precio USD ${product.precio} </h5>
@@ -224,7 +224,7 @@ const mostrarCarrito = () => {
     const muestraCarrito = document.createElement('article');
     muestraCarrito.classList.add("card", "col-md-12", "col-lg-11");
     muestraCarrito.innerHTML = `
-                              <img class="card-img-top" src="${productoCarrito.imagen}" alt="img">
+                              <img class="card-img-top img-prod" src="${productoCarrito.imagen}" alt="img">
                               <div class="card-body"> 
                                 <h4 class="card-title">${productoCarrito.nombre}</h4>
                                 <h5 class="cart-title">USD ${productoCarrito.precio}</h5>
@@ -266,15 +266,15 @@ function funcionDatosCompra (total){
                             <div class="accordion-item">
 
                             <h2 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <button class="accordion-button titulo-acordion" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                 DATOS DE CONTACTO
                                 </button>
                             </h2>
 
                             <div id="collapseOne" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <nav class="navbar bg-body-tertiary">
-                                    <div class="container-fluid">
+                                <div class="accordion-body cuerpo-acordion">
+                                    <nav class="navbar bg-body-tertiary cuerpo-acordion ">
+                                    <div class="container-fluid ">
                                         <form class="" role="search">
                                             <h6>Nombre</h6>
                                             <input id="inputNombre" class="form-control me-2" type="text" placeholder="Nombre" aria-label="Search">
@@ -292,11 +292,11 @@ function funcionDatosCompra (total){
 
                             <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <button class="accordion-button collapsed titulo-acordion" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                 DATOS DE ENVIO
                                 </button>
                             </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div id="collapseTwo" class="accordion-collapse collapse cuerpo-acordion" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
                                   <h6> Provincia </h6>
                                   <input id="inputProvincia" class="form-control me-2" type="text" placeholder="Provincia" aria-label="Search">
@@ -317,13 +317,13 @@ function funcionDatosCompra (total){
 
                             <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <button class="accordion-button collapsed titulo-acordion" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                 DATOS DE PAGO
                                 </button>
                             </h2>
 
-                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
+                            <div id="collapseThree" class="accordion-collapse collapse cuerpo-acordion" data-bs-parent="#accordionExample">
+                                <div class="accordion-body ">
                                   <h6> Nombre y apellido que figura en la tarjeta </h6>
                                   <input id="inputNombreTarjeta" class="form-control me-2" type="text" placeholder="Nombre y apellido" aria-label="Search">
                                   <h6> Número de la tarjeta </h6>
@@ -381,8 +381,6 @@ function funcionDatosCompra (total){
         title: 'Oops...',
         text: 'Completar los datos de envío',
         })
-        
-      
       }
       //no confirma si hay str en el nº de tarjeta
       else if(/^[0-9]+$/.test(datosCliente.numeroTarjeta) == false ){

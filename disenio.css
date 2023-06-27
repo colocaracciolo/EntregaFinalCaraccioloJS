@@ -20,7 +20,7 @@ body {
     width: 95px;
     margin-left: 40px;
     margin-top: 15px;
-    
+    font-family: 'Work Sans', sans-serif;
 }
 
 .iconoCarrito{
@@ -85,6 +85,8 @@ header{
     background-color: #fb8b24;
     width: 150px;
     padding: 8px;
+    border: 3px solid #22682e;
+    border-color: #22682e;
 }
 
 .acordion{
@@ -139,7 +141,7 @@ header{
     background-color: #fb8b24;
     border-radius: 5%;
     font-size: 20px;
-    font-family: sans-serif;
+    font-family: 'Work Sans', sans-serif;
 
 }
 
@@ -147,30 +149,52 @@ header{
     width: 16px;
 }
 
+/*titulo del filtro"filtrar"*/
+.titleNav{
+    color: #023047;
+    padding-left: 5px;
+    font-size: 26px;
+    font-family: 'Work Sans', sans-serif;
+}
+
+/*subtitulo del filtro "categorias"*/
+.titleFilter{
+    color:#023047;
+    padding-left: 5px;
+    font-size: 19px;
+    font-family: 'Work Sans', sans-serif;
+}
+
+/*categorias*/
 .catInput{
     display: flex;
     flex-direction: row wrap;
     color:#023047;
-    padding: 5px;
-}
-
-.titleNav{
-    color: #023047;
-    padding: 5px;
-    
-}
-
-.titleFilter{
-    color:#023047;
-   
+    padding-left: 5px;
+    font-size: 18px;
+    padding-top: 3px;
+    padding-bottom: 2px ;
+    padding-left: 3px;
+    font-family: 'Work Sans', sans-serif;
 }
 
 .card{
     margin: 15px; 
+    box-shadow: 15px 15px 30px #bebebe41,
+             -15px -15px 30px #ffffff48;
 }
 
+.titulo-acordion{
+   background: -webkit-linear-gradient(left, #5373afb6, #627eb170);
+   font-family: 'Work Sans', sans-serif;
+}
 
-/*
-.formFiltrado{
-    width: 100px;
-}*/
+.cuerpo-acordion{
+    background: -webkit-linear-gradient(left, #5373afb6, #627eb170);
+    font-family: 'Work Sans', sans-serif;
+}
+
+.img-prod{
+    padding-left: 5px;
+    padding-right: 5px;
+}
