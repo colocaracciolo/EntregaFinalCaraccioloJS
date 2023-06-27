@@ -15,7 +15,7 @@ let datosCliente =
                     codigoSeguridad:"",
                     fechaVencimiento:""
                     }
-const dolarPeso= 2;
+const dolarPeso= 495;
 
 // Verificar si el carrit está almacenado en localStorage y cargarlo
 if (localStorage.getItem('carrito')) {
@@ -32,32 +32,46 @@ const navigationBar = document.querySelector(".filtro")
 const contenedorFiltro = document.createElement('div')
 contenedorFiltro.classList.add("clase--filtro")
 contenedorFiltro.innerHTML=`
-                            <form id="filtroCategorias">
+                            <form id="filtroCategorias" class="formFiltrado" >
+                                
                                 <h4 class="titleNav"> Filtrar </h4>
                                 <h5 class="titleFilter"> Categorías </h5>
 
-                                <h6 class="titleCat">Todas</h6>
-                                <input id="all" value="all" type="radio" name="option"  >
+                                <div class="catInput">
+                                  <input id="all" value="all" type="radio" name="option" class="check">
+                                  <h6 class="titleCat">Todo</h6>
+                                </div>
 
-                                <h6 class="titleCat">Montaña</h6>
-                                <input id="mountain" value="montana" type="radio" name="option">
+                                <div class="catInput">
+                                  <input id="mountain" value="montana" type="radio" name="option" class="check">
+                                  <h6 class="titleCat">Montaña</h6>
+                                </div>
 
-                                <h6 class="titleCat">Ruta</h6>
-                                <input id="road" value="ruta" type="radio" name="option">
+                                <div class="catInput">
+                                  <input id="road" value="ruta" type="radio" name="option" class="check">
+                                  <h6 class="titleCat">Ruta</h6>
+                                </div>
 
-                                <h6 class="titleCat">e-bike</h6>
-                                <input id="ebike" value="ebike" type="radio" name="option">
+                                <div class="catInput">
+                                  <input id="ebike" value="ebike" type="radio" name="option" class="check" color:"blue">
+                                  <h6 class="titleCat">e-bike</h6>
+                                </div>  
 
-                                <h6 class="titleCat">DH</h6>
-                                <input id="DH" value="DH" type="radio" name="option">
+                                <div class="catInput">
+                                  <input id="DH" value="DH" type="radio" name="option" class="check">
+                                  <h6 class="titleCat">DH</h6>
+                                </div>
 
-                                <h6 class="titleCat">Accesorios</h6>
-                                <input id="accesories" value="accesorios" type="radio" name="option">
+                                <div class="catInput">
+                                  <input id="accesories" value="accesorios" type="radio" name="option" class="check">
+                                  <h6 class="titleCat">Accesorios</h6>
+                                </div>
 
-                                <h6 class="titleCat">Ropa</h6>
-                                <input id="clothes" value="ropa" type="radio" name="option">
-
-                                <br>
+                                <div class="catInput">    
+                                  <input id="clothes" value="ropa" type="radio" name="option" class="check">
+                                  <h6 class="titleCat">Ropa</h6>
+                                </div>
+                                
                             </form>
                           `
 navigationBar.appendChild(contenedorFiltro)

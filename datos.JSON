@@ -1,5 +1,5 @@
 [{"nombre":"Scott spark RC SL","categoria":"montana","precio":15000,"talle":"M","color":"Negro","marca":"Scott","peso":1870,"material":"Fibra de carbono","id":"0","cubiertas":"Maxxis rekon ",
-"frenos":"Disco - Shimano xtr","horquilla":"FOX","imagen":"./imgs/imgsProductos/scott-spark.png"},
+"frenos":"Disco - Shimano xtr","horquilla":"FOX","imagen":"./imgs/imgsProductos/sparkrcls.png"},
 {"nombre":"Scott Genius 900 Ultimate","categoria":"montana","precio":12498,"talle":"L","color":"Negro y bordó",
 "marca":"Scott","peso":3200,"material":"Fibra de carbono","id":"1","cubiertas":"Maxxis foldable","frenos":
 "Shimano XTR 4 piston disc brake","susprencion":"FOX 36 float factory 160 mm","imagen":"imgs/imgsProductos/genius.png"},
@@ -16,7 +16,7 @@
 "imagen":"imgs/imgsProductos/casco-scot.png"},{"nombre":"zapatillas scott mtb RC","categoria":"ropa",
 "precio":400,"talle":41,"color":"negro ","marca":"scott","peso":360,"material":"goma y poliester","id":"6",
 "cierre":"BOA","imagen":"imgs/imgsProductos/zapa-scott.png"},{"nombre":"Gafas Scott SPURR","categoria":"accesorios",
-"precio":200,"talle":"Unico","color":"Amarillo","marca":"Scott","peso":34,"id":"7","lentes":"Intecambiables 100% UV",
+"precio":200,"talle":"Unico","color":"Amarillo","marca":"Scott","peso":34,"id":"7","material":"Intecambiables 100% UV",
 "imagen":"imgs/imgsProductos/lentes-scott-sol.png"},{"nombre":"Portabidones SYNCROS IS CACHE","categoria":"accesorios"
 ,"precio":55,"talle":"Único","color":"Negro mate","marca":"Scott","peso":130,"material":"Nilon y fibra de vidrio",
 "id":"8","imagen":"imgs/imgsProductos/portaBidones1.jpg"},{"nombre":"Inflador Scott","categoria":"accesorios",
