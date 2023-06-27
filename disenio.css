@@ -70,6 +70,7 @@ header{
     align-items: stretch;    
     padding-left: 5px;
     margin-left: 35px;
+    height: min-content;
 }
 
 .grid-item2{
@@ -197,4 +198,9 @@ header{
 .img-prod{
     padding-left: 5px;
     padding-right: 5px;
+}
+
+.acordion{
+    padding-bottom: 120px;
+    font-family: 'Work Sans', sans-serif;
 }
