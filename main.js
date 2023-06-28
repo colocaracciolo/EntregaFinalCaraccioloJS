@@ -227,7 +227,7 @@ const mostrarCarrito = () => {
   contenedorCarrito.innerHTML = '';
   
   const tituloCarrito = document.createElement('p');
-  tituloCarrito.classList.add("tituloCarro")
+
   tituloCarrito.textContent = `Carrito de compras`
   contenedorCarrito.appendChild(tituloCarrito)
   
