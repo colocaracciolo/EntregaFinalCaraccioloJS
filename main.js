@@ -17,11 +17,16 @@ let datosCliente =
                     }
 const dolarPeso= 495;
 
+Swal.fire({
+  icon: 'warning',
+  title: '¡Atención!',
+  text: 'Los precios de los productos figuran en dólares estadounidenses. El total de la compra figura en pesos argentinos al tipo de cambio actual',
+})
+
 // Verificar si el carrit está almacenado en localStorage y cargarlo
 if (localStorage.getItem('carrito')) {
   carrito = JSON.parse(localStorage.getItem('carrito'));
 }
-
 // Verifico si los datos del client están almacenado en localStorage y cargarlo
 if (localStorage.getItem('datosCliente')) {
   datosCliente = JSON.parse(localStorage.getItem('datosCliente'));
