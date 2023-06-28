@@ -39,32 +39,32 @@ contenedorFiltro.innerHTML=`
 
                                 <div class="catInput">
                                   <input id="all" value="all" type="radio" name="option" class="check">
-                                  <h6 class="titleCat">Todo</h6>
+                                  <h6 class="titleCat"> Todo</h6>
                                 </div>
 
                                 <div class="catInput">
                                   <input id="mountain" value="montana" type="radio" name="option" class="check">
-                                  <h6 class="titleCat">Montaña</h6>
+                                  <h6 class="titleCat"> Montaña</h6>
                                 </div>
 
                                 <div class="catInput">
                                   <input id="road" value="ruta" type="radio" name="option" class="check">
-                                  <h6 class="titleCat">Ruta</h6>
+                                  <h6 class="titleCat"> Ruta</h6>
                                 </div>
 
                                 <div class="catInput">
                                   <input id="ebike" value="ebike" type="radio" name="option" class="check" color:"blue">
-                                  <h6 class="titleCat">e-bike</h6>
+                                  <h6 class="titleCat"> e-bike</h6>
                                 </div>  
 
                                 <div class="catInput">
                                   <input id="DH" value="DH" type="radio" name="option" class="check">
-                                  <h6 class="titleCat">DH</h6>
+                                  <h6 class="titleCat"> DH</h6>
                                 </div>
 
                                 <div class="catInput">
                                   <input id="accesories" value="accesorios" type="radio" name="option" class="check">
-                                  <h6 class="titleCat">Accesorios</h6>
+                                  <h6 class="titleCat"> Accesorios</h6>
                                 </div>
 
                                 <div class="catInput">    
@@ -220,6 +220,13 @@ const contenedorCarrito = document.querySelector(".grid-item2");
 // Mostrar el carrito
 const mostrarCarrito = () => {
   contenedorCarrito.innerHTML = '';
+  
+  const tituloCarrito = document.createElement('p');
+  tituloCarrito.classList.add("tituloCarro")
+  tituloCarrito.textContent = `Carrito de compras`
+  contenedorCarrito.appendChild(tituloCarrito)
+  
+  contenedorCarrito.textContent = `Carrito de compras`
   carrito.forEach(productoCarrito => {
     const muestraCarrito = document.createElement('article');
     muestraCarrito.classList.add("card", "col-md-12", "col-lg-11");
@@ -260,7 +267,8 @@ function funcionDatosCompra (total){
   const datosCompraFinal = document.createElement('article');
     datosCompraFinal.classList.add("accordion");
     datosCompraFinal.innerHTML = `
-    
+
+                          <h5 class="tituloDatos">Datos de compra a continuación </h5>
                           <div class="accordion acordion">
 
                             <div class="accordion-item">
